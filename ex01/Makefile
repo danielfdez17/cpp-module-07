@@ -6,7 +6,7 @@ RESET = \033[0m
 OK = $(GREEN)[OK]$(RESET)
 
 # * Program name
-NAME = bureaucrat
+NAME = iter.out
 
 # * Compilation
 CC = c++

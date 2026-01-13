@@ -6,7 +6,7 @@ RESET = \033[0m
 OK = $(GREEN)[OK]$(RESET)
 
 # * Program name
-NAME = bureaucrat
+NAME = templates.out
 
 # * Compilation
 CC = c++

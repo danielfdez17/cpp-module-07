@@ -6,7 +6,7 @@ RESET = \033[0m
 OK = $(GREEN)[OK]$(RESET)
 
 # * Program name
-NAME = iter.out
+NAME = array.out
 
 # * Compilation
 CC = c++
@@ -23,7 +23,7 @@ OBJ_DIR = ./obj/
 
 # * Sources files
 BUREAUCRAT_DIR = ./src/
-BUREAUCRAT_SRCS = 	main.cpp Array.cpp
+BUREAUCRAT_SRCS = 	main.cpp # Array.tpp
 
 SRCS = $(BUREAUCRAT_SRCS)
 

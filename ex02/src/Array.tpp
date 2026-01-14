@@ -1,21 +1,26 @@
 #include "Array.hpp"
 #include <exception>
+#include <iostream>
 
 template <typename T>
-Array::Array() : _size(0), arr(nullptr)
+Array<T>::Array() : arr(NULL), _size(0)
 {
-
+	std::cout << BLUE << __func__ << " default constructor called\n" RESET;
 }
 
 template <typename T>
-Array::Array(unsigned int n) : _size(n)
+Array<T>::Array(unsigned int n) : _size(n)
 {
+	std::cout << BLUE << __func__ << " parameterized constructor called\n" RESET;
+	if (n <= 0)
+		return ;
 	arr = new T[_size];
 }
 
 template <typename T>
-Array::Array(const Array &copy)
+Array<T>::Array(const Array &copy)
 {
+	std::cout << BLUE << __func__ << " copy constructor called\n" RESET;
 	if (this == &copy)
 		return;
 
@@ -30,8 +35,9 @@ Array::Array(const Array &copy)
 }
 
 template <typename T>
-Array	&Array::operator=(const Array &copy)
+Array<T>	&Array<T>::operator=(const Array &copy)
 {
+	std::cout << BLUE << __func__ << " assignment operator called\n" RESET;
 	if (this == &copy)
 		return *this;
 
@@ -47,30 +53,31 @@ Array	&Array::operator=(const Array &copy)
 }
 
 template <typename T>
-Array::~Array()
+Array<T>::~Array()
 {
+	std::cout << BLUE << __func__ << " destructor called\n" RESET;
 	delete[] arr;
 	_size = 0;
 }
 
 template <typename T>
-T	&Array::operator[](int idx)
+T	&Array<T>::operator[](int idx)
 {
 	if (idx < 0 || idx >= _size)
-		throw std::exception("Index is out of bounds!");
+		throw std::exception();
 	return arr[idx];
 }
 
 template <typename T>
-const T	&Array::operator[](int idx) const
+const T	&Array<T>::operator[](int idx) const
 {
 	if (idx < 0 || idx >= _size)
-		throw std::exception("Index is out of bounds!");
+		throw std::exception();
 	return arr[idx];
 }
 
 template <typename T>
-long	Array::size() const
+long	Array<T>::size() const
 {
 	return _size;
 }

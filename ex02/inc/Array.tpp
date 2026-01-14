@@ -1,4 +1,4 @@
-#include "Array.hpp"
+// #include "Array.hpp"
 #include <exception>
 #include <iostream>
 
@@ -24,8 +24,8 @@ Array<T>::Array(const Array &copy)
 	if (this == &copy)
 		return;
 
-	if (arr)
-		delete[] arr;
+	// if (arr)
+	// 	delete[] arr;
 
 	_size = copy._size;
 	arr = new T[_size];

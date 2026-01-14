@@ -23,10 +23,23 @@ T const&	max(T const&a, T const&b)
 }
 
 template <typename T>
-void	iter(T const&arr, const int len, void (*f)(T const&))
+void	iter(T const *arr, const int len, void (*f)(T const&))
 {
 	for (int i = 0; i < len; ++i)
 		f(arr[i]);
+}
+
+template <typename T>
+void	iter(T *arr, const int len, void (*f)(T &))
+{
+	for (int i = 0; i < len; ++i)
+		f(arr[i]);
+}
+
+template <typename T>
+void	sum_value(T &val)
+{
+	val++;
 }
 
 template <typename T>
@@ -50,7 +63,8 @@ int main( void ) {
 	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
 	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 	std::cout << YELLOW "--------------Template tests--------------\n" RESET;
-	int arr[MAX_LENGTH] = {1,2,3,4,5,6,7,8,9};
+	int arr[MAX_LENGTH] = {1,2,3,4,5,6,7,8,9,10};
+	iter(arr, MAX_LENGTH, sum_value);
 	iter(arr, MAX_LENGTH, print_value);
 	return 0;
 }

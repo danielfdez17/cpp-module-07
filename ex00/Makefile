@@ -9,8 +9,8 @@ OK = $(GREEN)[OK]$(RESET)
 NAME = templates.out
 
 # * Compilation
-CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+MYCPP = c++
+MYCPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
 
 # * Removal
 RM = rm -rf
@@ -22,21 +22,21 @@ INCLUDES = -I ./inc/
 OBJ_DIR = ./obj/
 
 # * Sources files
-BUREAUCRAT_DIR = ./src/
-BUREAUCRAT_SRCS = 	main.cpp
+TEMPLATES_DIR = ./src/
+TEMPLATES_SRCS = 	main.cpp Fixed.cpp
 
-SRCS = $(BUREAUCRAT_SRCS)
+SRCS = $(TEMPLATES_SRCS)
 
 # * Object files
 OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.cpp=.o))
 
 # ! RULES
-$(OBJ_DIR)%.o: $(BUREAUCRAT_DIR)%.cpp
+$(OBJ_DIR)%.o: $(TEMPLATES_DIR)%.cpp
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@$(MYCPP) $(MYCPPFLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJS) -o $(NAME)
+	@$(MYCPP) $(MYCPPFLAGS) $(INCLUDES) $(OBJS) -o $(NAME)
 	@echo "$(OK) $(GREEN)$(NAME)$(RESET)"
 
 all: obj $(NAME)
@@ -55,10 +55,11 @@ fclean: clean
 re: fclean all
 	@echo "$(OK) $(YELLOW)Rebuilt $(NAME)$(RESET)"
 
-run: all
+run:
 	clear
+	@$(MAKE) re --no-print-directory
 	./$(NAME)
 
-.PHONY: all obj clean fclean re
+.PHONY: all obj clean fclean re run
 
 .DEFAULT_GOAL: all

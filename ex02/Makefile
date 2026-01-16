@@ -55,10 +55,11 @@ fclean: clean
 re: fclean all
 	@echo "$(OK) $(YELLOW)Rebuilt $(NAME)$(RESET)"
 
-run: all
+run:
 	clear
+	@$(MAKE) re --no-print-directory
 	./$(NAME)
 
-.PHONY: all obj clean fclean re
+.PHONY: all obj clean fclean re run
 
 .DEFAULT_GOAL: all

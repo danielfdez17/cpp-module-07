@@ -39,7 +39,10 @@ Array<T>	&Array<T>::operator=(const Array &copy)
 		return *this;
 
 	if (arr)
+	{
 		delete[] arr;
+		arr = NULL;
+	}
 
 	_size = copy._size;
 	arr = new T[_size];
@@ -54,6 +57,7 @@ Array<T>::~Array()
 {
 	std::cout << BLUE << __func__ << " destructor called\n" RESET;
 	delete[] arr;
+	arr = NULL;
 	_size = 0;
 }
 

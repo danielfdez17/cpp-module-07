@@ -51,5 +51,22 @@ int main(int, char**)
 		numbers[i] = rand();
 	}
 	delete [] mirror;
+	{
+		std::cout << YELLOW "My tests" RESET << std::endl;
+		Array<int> myArray(5);
+		Array<int> myCopy = myArray;
+		myCopy = myArray;
+		int* mirror = new int[5];
+		int *mirrorCopy = mirror;
+		for (int i = 0; i < 5; i++)
+			std::cout << "myArray[" << i << "] = " << myArray[i] << std::endl;
+		for (int i = 0; i < 5; i++)
+			mirrorCopy[i]++;
+		for (int i = 0; i < 5; i++)
+			std::cout << "myArray[" << i << "] = " << myArray[i] << std::endl;
+		for (int i = 0; i < 5; i++)
+			std::cout << "mirrorCopy[" << i << "] = " << mirrorCopy[i] << std::endl;
+		delete[] mirror;
+	}
 	return 0;
 }

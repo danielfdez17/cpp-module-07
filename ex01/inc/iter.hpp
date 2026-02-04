@@ -31,6 +31,7 @@ void	automate(T a, T b)
 	std::cout << "max( a, b ) = " << ::max( a, b ) << "\n\n";
 }
 
+// todo: typename F
 template <typename T>
 void	iter(T const *arr, const int len, void (*f)(T const&))
 {
@@ -38,6 +39,7 @@ void	iter(T const *arr, const int len, void (*f)(T const&))
 		f(arr[i]);
 }
 
+// todo: typename F
 template <typename T>
 void	iter(T *arr, const int len, void (*f)(T &))
 {
@@ -58,14 +60,18 @@ void	noModValue(T const&val)
 	std::cout << val << " ";
 }
 
-template <typename T>
-void	automateRef(T *arr, const int len, void(*f)(T &))
+template <typename T, typename F>
+void	automateRef(T *arr, const int len, F *f(T &))
+// template <typename T>
+// void	automateRef(T *arr, const int len, void(*f)(T &))
 {
 	iter(arr, len, f);
 }
 
-template <typename T>
-void	automateConstRef(T const *arr, const int len, void (*f)(T const&))
+template<typename T, typename F>
+void	automateConstRef(T const *arr, const int len, F *f(T const&))
+// template <typename T>
+// void	automateConstRef(T const *arr, const int len, void (*f)(T const&))
 {
 	iter(arr, len, f);
 	std::cout << "\n";

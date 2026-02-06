@@ -12,9 +12,15 @@ template <typename T>
 Array<T>::Array(unsigned int n) : _size(n)
 {
 	std::cout << BLUE << __func__ << " parameterized constructor called\n" RESET;
-	if (n <= 0)
+	int new_size = (int)n;
+	// std::cout << "       n: " << n << "\n";
+	// std::cout << "new_size: " << new_size << "\n";
+	if (new_size <= 0)
 		return ;
 	arr = new T[_size];
+	// by default they are initialized to -1049...
+	for (long i = 0; i < _size; i++)
+		arr[i] = 0;
 }
 
 template <typename T>

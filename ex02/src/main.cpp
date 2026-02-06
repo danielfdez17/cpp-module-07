@@ -9,6 +9,7 @@ int main(int, char**)
 		Array<int> numbers(MAX_VAL);
 		std::cout << YELLOW "numbers size: " << numbers.size() << std::endl;
 		int* mirror = new int[MAX_VAL];
+		// std::cout << mirror[0] << "\n";
 		srand(time(NULL));
 		for (int i = 0; i < MAX_VAL; i++)
 		{
@@ -60,6 +61,9 @@ int main(int, char**)
 		Array<int> mirror(5);
 		std::cout << YELLOW << "test\n";
 		Array<int> mirrorCopy = mirror;
+		int *a = new int();
+		std::cout << a << "\n" << *a << "\n";
+		delete a;
 		for (int i = 0; i < 5; i++)
 			std::cout << "mirror[" << i << "] = " << mirror[i] << std::endl;
 		for (int i = 0; i < 5; i++)
@@ -68,6 +72,7 @@ int main(int, char**)
 			std::cout << "mirror[" << i << "] = " << mirror[i] << std::endl;
 		for (int i = 0; i < 5; i++)
 			std::cout << "mirrorCopy[" << i << "] = " << mirrorCopy[i] << std::endl;
+		Array<int> negative(-1);
 	}
 	return 0;
 }

@@ -26,6 +26,7 @@ T const&	max(T const&a, T const&b)
 template <typename T>
 void	automate(T a, T b)
 {
+	std::cout << "a = " << a << ", b = " << b << "\n";
 	::swap( a, b );
 	std::cout << "a = " << a << ", b = " << b << "\n";
 	std::cout << "min( a, b ) = " << ::min( a, b ) << "\n";

@@ -60,18 +60,18 @@ void	noModValue(T const&val)
 	std::cout << val << " ";
 }
 
-template <typename T, typename F>
-void	automateRef(T *arr, const int len, F *f(T &))
-// template <typename T>
-// void	automateRef(T *arr, const int len, void(*f)(T &))
+// template <typename T, typename F>
+// void	automateRef(T *arr, const int len, F *f(T &))
+template <typename T>
+void	automateRef(T *arr, const int len, void(*f)(T &))
 {
 	iter(arr, len, f);
 }
 
-template<typename T, typename F>
-void	automateConstRef(T const *arr, const int len, F *f(T const&))
-// template <typename T>
-// void	automateConstRef(T const *arr, const int len, void (*f)(T const&))
+// template<typename T, typename F>
+// void	automateConstRef(T const *arr, const int len, F *f(T const&))
+template <typename T>
+void	automateConstRef(T const *arr, const int len, void (*f)(T const&))
 {
 	iter(arr, len, f);
 	std::cout << "\n";

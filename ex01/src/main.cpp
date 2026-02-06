@@ -73,12 +73,12 @@ const int MAX_LENGTH = 10;
 // }
 
 int main( void ) {
-	std::cout << YELLOW "--------------Template tests--------------\n" RESET;
-	automate(2, 3);
-	automate(2.0f, 3.5f);
-	automate(20.00, 30.50);
-	automate("chain1", "chain2");
-	automate('3', 'X');
+	// std::cout << YELLOW "--------------Template tests--------------\n" RESET;
+	// automate(2, 3);
+	// automate(2.0f, 3.5f);
+	// automate(20.00, 30.50);
+	// automate("chain1", "chain2");
+	// automate('3', 'X');
 	std::cout << YELLOW "--------------Iter tests--------------\n" RESET;
 
 	int arr[MAX_LENGTH] = {1,2,3,4,5,6,7,8,9,10};

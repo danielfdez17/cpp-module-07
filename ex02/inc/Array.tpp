@@ -9,7 +9,7 @@ Array<T>::Array() : arr(NULL), _size(0)
 }
 
 template <typename T>
-Array<T>::Array(unsigned int n) : _size(n)
+Array<T>::Array(unsigned int n) : arr(NULL), _size(n)
 {
 	std::cout << BLUE << __func__ << " parameterized constructor called\n" RESET;
 	int new_size = (int)n;
@@ -62,7 +62,8 @@ template <typename T>
 Array<T>::~Array()
 {
 	std::cout << BLUE << __func__ << " destructor called\n" RESET;
-	delete[] arr;
+	if (arr)
+		delete[] arr;
 	arr = NULL;
 	_size = 0;
 }

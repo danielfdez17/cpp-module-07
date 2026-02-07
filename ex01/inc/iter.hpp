@@ -31,7 +31,6 @@ void	automate(T a, T b)
 	std::cout << "max( a, b ) = " << ::max( a, b ) << "\n\n";
 }
 
-// todo: typename F
 template <typename T>
 void	iter(T const *arr, const int len, void (*f)(T const&))
 {
@@ -39,7 +38,6 @@ void	iter(T const *arr, const int len, void (*f)(T const&))
 		f(arr[i]);
 }
 
-// todo: typename F
 template <typename T>
 void	iter(T *arr, const int len, void (*f)(T &))
 {

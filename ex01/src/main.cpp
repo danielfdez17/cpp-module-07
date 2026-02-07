@@ -99,6 +99,10 @@ int main( void ) {
 	automateConstRef(cArr, MAX_LENGTH, noModValue);
 	std::cout << "\n";
 
+	int const array[MAX_LENGTH] = {1,2,3,4,5,6,7,8,9,10};
+	automateConstRef(array, MAX_LENGTH, noModValue);
+	// automateRef(array, MAX_LENGTH, modValue);
+	automateConstRef(array, MAX_LENGTH, noModValue);
 	// std::string sArr = "aasd523!aG)SDGs+``+*^adHGa023faFsa3<?";
 	// automateConstRef(&sArr, sArr.size(), noModValue);
 	// automateRef(&sArr, sArr.size(), modValue);
